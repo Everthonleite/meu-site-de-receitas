@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receitas</title>
+</head>
+<body>
+  <h1>Receitas</h1>
+  <% if (username) { %>
+    <p>Olá, <%= username %>!</p>
+    <!-- Restante do formulário e lista de receitas -->
+  <% } else { %>
+    <p>Por favor, faça login para adicionar receitas.</p>
+  <% } %>
+</body>
+</html>
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Receitas</title>
+</head>
+<body>
+  <h1>Receitas</h1>
+  <% if (username) { %>
+    <p>Olá, <%= username %>!</p>
+    <!-- Formulário para adicionar receitas -->
+    <form action="/recipes/add" method="post">
+      <label for="title">Título:</label>
+      <input type="text" id="title" name="title" required>
+      <label for="description">Descrição:</label>
+      <textarea id="description" name="description" required></textarea>
+      <label for="image">URL da Imagem:</label>
+      <input type="text" id="image" name="image" required>
+      <button type="submit">Adicionar Receita</button>
+    </form>
+  <% } else { %>
+    <p>Por favor, faça login para adicionar receitas.</p>
+  <% } %>
+  <!-- Lista de receitas -->
+  <ul>
+    <% recipes.forEach(recipe => { %>
+      <li>
+        <h2><%= recipe.title %></h2>
+        <p><%= recipe.description %></p>
+        <img src="<%= recipe.image %>" alt="<%= recipe.title %>">
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
